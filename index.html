@@ -2,34 +2,16 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <title>Sistemas de Informação - Campus Londrina</title>
+  <title>Casis - Londrina</title>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-  <style>
-    :root {
-      --primary-color: #014353;
-      --secondary-color: #b32564;
-      --tertiary-color: #027d89;
-      --accent-color: #ebb43b;
-      --text-primary: #111418;
-      --text-secondary: #617489;
-      --surface-background: #f8f9fa;
-      --border-color: #dbe0e6;
-    }
-    .icon-glow {
-      transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out; /*transicao bem suavezin para cor e sombra do texto*/
-    }
-    .icon-glow:hover {
-      color: var(--secondary-color);
-      text-shadow: 0 0 8px var(--secondary-color); /*efeito de brilho ao passar o mouse*/
-    }
-  </style>
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body class="bg-white font-sans">
   <div class="relative flex min-h-screen flex-col overflow-x-hidden" style='font-family: "Spline Sans", "Noto Sans", sans-serif;'>
     <header class="sticky top-0 z-50 flex items-center justify-between border-b border-[var(--border-color)] bg-white/80 px-6 py-4 shadow-sm backdrop-blur-md md:px-10">
       <div class="flex items-center gap-3 text-[var(--text-primary)]">
-        <img src="byte.png" alt="logo" class="w-12 h-12" /> <!-- tamanho fixo-->
+        <img src="assets/byte.png" alt="logo" class="w-12 h-12" /> <!-- tamanho fixo-->
         <h1 class="text-xl font-bold leading-tight tracking-[-0.015em]">CASIS </h1>
       </div>
       <nav class="hidden items-center gap-6 md:flex"> <!--menu oculto em tela pequenas-->
@@ -49,11 +31,11 @@
     <main class="flex flex-col flex-1">
       <section
         class="relative flex min-h-[400px] items-center justify-center bg-cover bg-center bg-no-repeat p-12 text-center text-white"
-        style='background-image: linear-gradient(rgba(1, 67, 83, 0.7), rgba(2, 125, 137, 0.9)), url("utfpr.webp");' 
+        style='background-image: linear-gradient(rgba(1, 67, 83, 0.7), rgba(2, 125, 137, 0.9)), url("assets/utfpr.webp");' 
         /*fundo com gradiente escuro para melhorar contraste e imagem de fundo*/
       >
         <div class="max-w-2xl space-y-4 relative z-10">
-          <h1 class="text-4xl font-black tracking-tight md:text-5xl">Curso de Sistemas Informação - Londrina</h1>         
+          <h1 class="text-4xl font-black tracking-tight md:text-5xl">Bacharelado em Sistemas de Informação - Londrina</h1>         
         </div>
       </section>
 
@@ -94,17 +76,442 @@
         </div>
       </section>
 
-      <!-- FINALIZAR GRADE CURRICULAR -->
+      <!-- GRADE CURRICULAR COMPLETA -->
       <section class="py-16 px-4 md:px-10 lg:px-20" id="grade">
-        <div class="mx-auto max-w-3xl">
+        <div class="mx-auto max-w-6xl">
           <h2 class="mb-12 text-center text-3xl font-bold leading-tight tracking-tight text-[var(--text-primary)] md:text-4xl">
-            Grade Curricular do Primeiro semestre<span class="text-[var(--tertiary-color)]">
+            Grade Curricular <span class="text-[var(--tertiary-color)]">Completa</span>
           </h2>
-          <ul class="list-disc list-inside space-y-2 text-[var(--text-primary)] text-lg">
-            <li>Engenharia De Software - 1º Semestre </li>
-            <li>Fundamentos De Sistemas De Informação - 1º Semestre </li>
-            <li>Algoritmos E Lógica De Programação - 1º Semestre </li>
-          </ul>
+          
+          <!-- Grade por Períodos -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            <!-- 1º Período -->
+            <div class="bg-white rounded-xl border border-[var(--border-color)] p-6 shadow-lg">
+              <h3 class="text-xl font-bold text-[var(--primary-color)] mb-4 text-center">1º Período</h3>
+              <ul class="space-y-3 text-sm">
+                <li class="flex items-start gap-2">
+                  <span class="text-[var(--secondary-color)] font-semibold">1.1</span>
+                  <div>
+                    <p class="font-medium text-[var(--text-primary)]">Algoritmos e Lógica de Programação</p>
+                    <p class="text-xs text-[var(--text-secondary)]">BAS • SPR • OBR • 90h</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[var(--secondary-color)] font-semibold">1.2</span>
+                  <div>
+                    <p class="font-medium text-[var(--text-primary)]">Fundamentos de Sistemas de Informação</p>
+                    <p class="text-xs text-[var(--text-secondary)]">BAS • SPR • OBR • 30h</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[var(--secondary-color)] font-semibold">1.3</span>
+                  <div>
+                    <p class="font-medium text-[var(--text-primary)]">Inglês Instrumental</p>
+                    <p class="text-xs text-[var(--text-secondary)]">COM • SPR • OPT • 60h</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[var(--secondary-color)] font-semibold">1.4</span>
+                  <div>
+                    <p class="font-medium text-[var(--text-primary)]">Interpretação e Produção de Textos Científicos e Profissionais</p>
+                    <p class="text-xs text-[var(--text-secondary)]">HUM • SPR • OBR • 30h</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[var(--secondary-color)] font-semibold">1.5</span>
+                  <div>
+                    <p class="font-medium text-[var(--text-primary)]">Engenharia de Software</p>
+                    <p class="text-xs text-[var(--text-secondary)]">TEC • SPR • OBR • 60h</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[var(--secondary-color)] font-semibold">1.6</span>
+                  <div>
+                    <p class="font-medium text-[var(--text-primary)]">Estrutura de Dados 1</p>
+                    <p class="text-xs text-[var(--text-secondary)]">BAS • SPR • OBR • 60h</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- 2º Período -->
+            <div class="bg-white rounded-xl border border-[var(--border-color)] p-6 shadow-lg">
+              <h3 class="text-xl font-bold text-[var(--primary-color)] mb-4 text-center">2º Período</h3>
+              <ul class="space-y-3 text-sm">
+                <li class="flex items-start gap-2">
+                  <span class="text-[var(--secondary-color)] font-semibold">2.1</span>
+                  <div>
+                    <p class="font-medium text-[var(--text-primary)]">Programação de Computadores 1</p>
+                    <p class="text-xs text-[var(--text-secondary)]">BAS • CPR • OBR • 60h</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[var(--secondary-color)] font-semibold">2.2</span>
+                  <div>
+                    <p class="font-medium text-[var(--text-primary)]">Banco de Dados 1</p>
+                    <p class="text-xs text-[var(--text-secondary)]">TEC • SPR • OBR • 60h</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[var(--secondary-color)] font-semibold">2.3</span>
+                  <div>
+                    <p class="font-medium text-[var(--text-primary)]">Grupo 1 - Ciências Humanas</p>
+                    <p class="text-xs text-[var(--text-secondary)]">HUM • SPR • OPT • 60h</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[var(--secondary-color)] font-semibold">2.4</span>
+                  <div>
+                    <p class="font-medium text-[var(--text-primary)]">Matemática Discreta</p>
+                    <p class="text-xs text-[var(--text-secondary)]">BAS • SPR • OBR • 60h</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[var(--secondary-color)] font-semibold">2.5</span>
+                  <div>
+                    <p class="font-medium text-[var(--text-primary)]">Análise Orientada a Objetos</p>
+                    <p class="text-xs text-[var(--text-secondary)]">TEC • SPR • OBR • 60h</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[var(--secondary-color)] font-semibold">2.6</span>
+                  <div>
+                    <p class="font-medium text-[var(--text-primary)]">Estrutura de Dados 1</p>
+                    <p class="text-xs text-[var(--text-secondary)]">BAS • SPR • OBR • 60h</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- 3º Período -->
+            <div class="bg-white rounded-xl border border-[var(--border-color)] p-6 shadow-lg">
+              <h3 class="text-xl font-bold text-[var(--primary-color)] mb-4 text-center">3º Período</h3>
+              <ul class="space-y-3 text-sm">
+                <li class="flex items-start gap-2">
+                  <span class="text-[var(--secondary-color)] font-semibold">3.1</span>
+                  <div>
+                    <p class="font-medium text-[var(--text-primary)]">Estrutura de Dados 2</p>
+                    <p class="text-xs text-[var(--text-secondary)]">BAS • CPR • OBR • 60h</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[var(--secondary-color)] font-semibold">3.2</span>
+                  <div>
+                    <p class="font-medium text-[var(--text-primary)]">Programação Web Front-end</p>
+                    <p class="text-xs text-[var(--text-secondary)]">BAS • SPR • OBR • 60h</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[var(--secondary-color)] font-semibold">3.3</span>
+                  <div>
+                    <p class="font-medium text-[var(--text-primary)]">Interação Humano-Computador</p>
+                    <p class="text-xs text-[var(--text-secondary)]">COM • SPR • OBR • 30h</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[var(--secondary-color)] font-semibold">3.4</span>
+                  <div>
+                    <p class="font-medium text-[var(--text-primary)]">Banco de Dados 2</p>
+                    <p class="text-xs text-[var(--text-secondary)]">TEC • SPR • OBR • 60h</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[var(--secondary-color)] font-semibold">3.5</span>
+                  <div>
+                    <p class="font-medium text-[var(--text-primary)]">Probabilidade e Estatística</p>
+                    <p class="text-xs text-[var(--text-secondary)]">BAS • SPR • OBR • 60h</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[var(--secondary-color)] font-semibold">3.6</span>
+                  <div>
+                    <p class="font-medium text-[var(--text-primary)]">Desenvolvimento de Novos Negócios</p>
+                    <p class="text-xs text-[var(--text-secondary)]">COM • SPR • OPT • 30h</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[var(--secondary-color)] font-semibold">3.7</span>
+                  <div>
+                    <p class="font-medium text-[var(--text-primary)]">Programação Orientada a Objetos</p>
+                    <p class="text-xs text-[var(--text-secondary)]">TEC • SPR • OBR • 60h</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- 4º Período -->
+            <div class="bg-white rounded-xl border border-[var(--border-color)] p-6 shadow-lg">
+              <h3 class="text-xl font-bold text-[var(--primary-color)] mb-4 text-center">4º Período</h3>
+              <ul class="space-y-3 text-sm">
+                <li class="flex items-start gap-2">
+                  <span class="text-[var(--secondary-color)] font-semibold">4.1</span>
+                  <div>
+                    <p class="font-medium text-[var(--text-primary)]">Arquitetura de Software</p>
+                    <p class="text-xs text-[var(--text-secondary)]">TEC • CPR • OBR • 60h</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[var(--secondary-color)] font-semibold">4.2</span>
+                  <div>
+                    <p class="font-medium text-[var(--text-primary)]">Programação Web Back-end</p>
+                    <p class="text-xs text-[var(--text-secondary)]">BAS • SPR • OBR • 60h</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[var(--secondary-color)] font-semibold">4.3</span>
+                  <div>
+                    <p class="font-medium text-[var(--text-primary)]">Grupo 2 - Ciências Sociais Aplicadas</p>
+                    <p class="text-xs text-[var(--text-secondary)]">HUM • SPR • OPT • 60h</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[var(--secondary-color)] font-semibold">4.4</span>
+                  <div>
+                    <p class="font-medium text-[var(--text-primary)]">Projeto Integrador 1</p>
+                    <p class="text-xs text-[var(--text-secondary)]">ESP • SPR • OBR • 90h EXT</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[var(--secondary-color)] font-semibold">4.5</span>
+                  <div>
+                    <p class="font-medium text-[var(--text-primary)]">Redes de Computadores</p>
+                    <p class="text-xs text-[var(--text-secondary)]">TEC • SPR • OBR • 60h</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[var(--secondary-color)] font-semibold">4.6</span>
+                  <div>
+                    <p class="font-medium text-[var(--text-primary)]">Grupo 4 - Computação</p>
+                    <p class="text-xs text-[var(--text-secondary)]">TEC • SPR • OPT • 60h</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- 5º Período -->
+            <div class="bg-white rounded-xl border border-[var(--border-color)] p-6 shadow-lg">
+              <h3 class="text-xl font-bold text-[var(--primary-color)] mb-4 text-center">5º Período</h3>
+              <ul class="space-y-3 text-sm">
+                <li class="flex items-start gap-2">
+                  <span class="text-[var(--secondary-color)] font-semibold">5.1</span>
+                  <div>
+                    <p class="font-medium text-[var(--text-primary)]">Inteligência Artificial</p>
+                    <p class="text-xs text-[var(--text-secondary)]">TEC • SPR • OBR • 60h</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[var(--secondary-color)] font-semibold">5.2</span>
+                  <div>
+                    <p class="font-medium text-[var(--text-primary)]">Programação Web Fullstack</p>
+                    <p class="text-xs text-[var(--text-secondary)]">BAS • SPR • OBR • 60h</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[var(--secondary-color)] font-semibold">5.3</span>
+                  <div>
+                    <p class="font-medium text-[var(--text-primary)]">Segurança em Sistemas de Informação</p>
+                    <p class="text-xs text-[var(--text-secondary)]">TEC • SPR • OBR • 30h</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[var(--secondary-color)] font-semibold">5.4</span>
+                  <div>
+                    <p class="font-medium text-[var(--text-primary)]">Comunicação Oral e Estratégica</p>
+                    <p class="text-xs text-[var(--text-secondary)]">HUM • SPR • OPT • 30h</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[var(--secondary-color)] font-semibold">5.5</span>
+                  <div>
+                    <p class="font-medium text-[var(--text-primary)]">Computação em Nuvens</p>
+                    <p class="text-xs text-[var(--text-secondary)]">BAS • SPR • OBR • 60h</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[var(--secondary-color)] font-semibold">5.6</span>
+                  <div>
+                    <p class="font-medium text-[var(--text-primary)]">Grupo 3 - Línguas</p>
+                    <p class="text-xs text-[var(--text-secondary)]">COM • SPR • OPT • 30h</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[var(--secondary-color)] font-semibold">5.7</span>
+                  <div>
+                    <p class="font-medium text-[var(--text-primary)]">Gerenciamento de Projetos e Desenvolvimento Ágil</p>
+                    <p class="text-xs text-[var(--text-secondary)]">TEC • SPR • OBR • 60h</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- 6º Período -->
+            <div class="bg-white rounded-xl border border-[var(--border-color)] p-6 shadow-lg">
+              <h3 class="text-xl font-bold text-[var(--primary-color)] mb-4 text-center">6º Período</h3>
+              <ul class="space-y-3 text-sm">
+                <li class="flex items-start gap-2">
+                  <span class="text-[var(--secondary-color)] font-semibold">6.1</span>
+                  <div>
+                    <p class="font-medium text-[var(--text-primary)]">Big Data</p>
+                    <p class="text-xs text-[var(--text-secondary)]">TEC • SPR • OBR • 60h</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[var(--secondary-color)] font-semibold">6.2</span>
+                  <div>
+                    <p class="font-medium text-[var(--text-primary)]">Projeto Integrador 2</p>
+                    <p class="text-xs text-[var(--text-secondary)]">ESP • CPR • OBR • 90h EXT</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[var(--secondary-color)] font-semibold">6.3</span>
+                  <div>
+                    <p class="font-medium text-[var(--text-primary)]">Metodologia de Pesquisa</p>
+                    <p class="text-xs text-[var(--text-secondary)]">HUM • SPR • OBR • 30h</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[var(--secondary-color)] font-semibold">6.4</span>
+                  <div>
+                    <p class="font-medium text-[var(--text-primary)]">Introdução à Tecnologia de Informação e Comunicação</p>
+                    <p class="text-xs text-[var(--text-secondary)]">HUM • SPR • OBR • 30h</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[var(--secondary-color)] font-semibold">6.5</span>
+                  <div>
+                    <p class="font-medium text-[var(--text-primary)]">Fundamentos de Sistemas Operacionais</p>
+                    <p class="text-xs text-[var(--text-secondary)]">TEC • SPR • OBR • 60h</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[var(--secondary-color)] font-semibold">6.6</span>
+                  <div>
+                    <p class="font-medium text-[var(--text-primary)]">Grupo 4 - Computação</p>
+                    <p class="text-xs text-[var(--text-secondary)]">TEC • SPR • OPT • 60h</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- 7º Período -->
+            <div class="bg-white rounded-xl border border-[var(--border-color)] p-6 shadow-lg">
+              <h3 class="text-xl font-bold text-[var(--primary-color)] mb-4 text-center">7º Período</h3>
+              <ul class="space-y-3 text-sm">
+                <li class="flex items-start gap-2">
+                  <span class="text-[var(--secondary-color)] font-semibold">7.1</span>
+                  <div>
+                    <p class="font-medium text-[var(--text-primary)]">Gestão da Inovação e da Tecnologia</p>
+                    <p class="text-xs text-[var(--text-secondary)]">SPR • OBR • 30h</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[var(--secondary-color)] font-semibold">7.2</span>
+                  <div>
+                    <p class="font-medium text-[var(--text-primary)]">Programação para Dispositivos Móveis</p>
+                    <p class="text-xs text-[var(--text-secondary)]">BAS • SPR • OBR • 60h</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[var(--secondary-color)] font-semibold">7.3</span>
+                  <div>
+                    <p class="font-medium text-[var(--text-primary)]">Sistemas Distribuídos e Ubíquos</p>
+                    <p class="text-xs text-[var(--text-secondary)]">TEC • SPR • OBR • 60h</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[var(--secondary-color)] font-semibold">7.4</span>
+                  <div>
+                    <p class="font-medium text-[var(--text-primary)]">Aprendizado de Máquina</p>
+                    <p class="text-xs text-[var(--text-secondary)]">TEC • SPR • OBR • 60h</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[var(--secondary-color)] font-semibold">7.5</span>
+                  <div>
+                    <p class="font-medium text-[var(--text-primary)]">Trabalho de Conclusão de Curso 1</p>
+                    <p class="text-xs text-[var(--text-secondary)]">ESP • SPR • OBR • 60h</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[var(--secondary-color)] font-semibold">7.6</span>
+                  <div>
+                    <p class="font-medium text-[var(--text-primary)]">Grupo 4 - Computação</p>
+                    <p class="text-xs text-[var(--text-secondary)]">TEC • SPR • OPT • 60h</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- 8º Período -->
+            <div class="bg-white rounded-xl border border-[var(--border-color)] p-6 shadow-lg">
+              <h3 class="text-xl font-bold text-[var(--primary-color)] mb-4 text-center">8º Período</h3>
+              <ul class="space-y-3 text-sm">
+                <li class="flex items-start gap-2">
+                  <span class="text-[var(--secondary-color)] font-semibold">8.1</span>
+                  <div>
+                    <p class="font-medium text-[var(--text-primary)]">Trabalho de Conclusão de Curso 2</p>
+                    <p class="text-xs text-[var(--text-secondary)]">ESP • SPR • OBR • 60h</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[var(--secondary-color)] font-semibold">8.2</span>
+                  <div>
+                    <p class="font-medium text-[var(--text-primary)]">Gestão de Pessoas</p>
+                    <p class="text-xs text-[var(--text-secondary)]">COM • SPR • OBR • 60h</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[var(--secondary-color)] font-semibold">8.3</span>
+                  <div>
+                    <p class="font-medium text-[var(--text-primary)]">Computação e Sociedade</p>
+                    <p class="text-xs text-[var(--text-secondary)]">HUM • SPR • OBR • 45h</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[var(--secondary-color)] font-semibold">8.4</span>
+                  <div>
+                    <p class="font-medium text-[var(--text-primary)]">Ciência de Dados</p>
+                    <p class="text-xs text-[var(--text-secondary)]">TEC • SPR • OBR • 60h</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+          <!-- Legenda -->
+          <div class="mt-12 bg-gray-50 rounded-xl p-6">
+            <h4 class="text-lg font-bold text-[var(--text-primary)] mb-4">Legenda</h4>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
+              <div>
+                <h5 class="font-semibold text-[var(--primary-color)] mb-2">Eixo de Formação</h5>
+                <ul class="space-y-1 text-[var(--text-secondary)]">
+                  <li><strong>BAS:</strong> Básica</li>
+                  <li><strong>TEC:</strong> Tecnológica</li>
+                  <li><strong>COM:</strong> Complementar</li>
+                  <li><strong>HUM:</strong> Humanística</li>
+                  <li><strong>ESP:</strong> Específica</li>
+                </ul>
+              </div>
+              <div>
+                <h5 class="font-semibold text-[var(--primary-color)] mb-2">Pré-requisitos</h5>
+                <ul class="space-y-1 text-[var(--text-secondary)]">
+                  <li><strong>SPR:</strong> Sem pré-requisito</li>
+                  <li><strong>CPR:</strong> Com pré-requisito</li>
+                </ul>
+              </div>
+              <div>
+                <h5 class="font-semibold text-[var(--primary-color)] mb-2">Tipo</h5>
+                <ul class="space-y-1 text-[var(--text-secondary)]">
+                  <li><strong>OBR:</strong> Obrigatória</li>
+                  <li><strong>OPT:</strong> Optativas</li>
+                  <li><strong>EXT:</strong> Extensionista</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <p class="text-xs text-[var(--text-primary)]">Poderá haver alterações no cronograma de acordo com a necessidade do curso.</p>
         </div>
       </section>
 
@@ -114,9 +521,10 @@
             Quer iniciar essa <a href="https://www.utfpr.edu.br/cursos/estudenautfpr" target="_blank" class="text-[var(--primary-color)] hover:underline">jornada com a gente?</a>
           </h2>
           <p class="mb-8 text-lg text-[var(--text-secondary)]">Venha para UTFPR-LD</p>
-          <a href="mailto:casis.londrina@gmail.com" class="inline-flex min-w-[84px] max-w-xs cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-8 mx-auto bg-[var(--secondary-color)] text-white text-base font-bold leading-normal tracking-[0.015em] transition-all hover:bg-[#961e52] hover:shadow-xl active:scale-95 transform hover:scale-105 no-underline">
+          <a href="https://mail.google.com/mail/?view=cm&to=casis.londrina@gmail.com" target="_blank" class="inline-flex min-w-[84px] max-w-xs cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-8 mx-auto bg-[var(--secondary-color)] text-white text-base font-bold leading-normal tracking-[0.015em] transition-all hover:bg-[#961e52] hover:shadow-xl active:scale-95 transform hover:scale-105 no-underline">
             <span class="truncate">Dúvidas? Entre em Contato</span>
             <span class="material-symbols-outlined ml-2">email</span>
+          </a>
           </a>
         </div>
       </section>
@@ -124,7 +532,7 @@
 
     <footer class="border-t border-[var(--border-color)] bg-gray-50 py-8 text-center">
       <p class="text-sm text-[var(--text-secondary)]">© 2025 Sistemas de Informação</p>
-      <p class="mt-2 text-xs text-gray-400">Verônica, Caio, Victor</p>
+      <p class="mt-2 text-xs text-gray-400">Feito pelo CASIS(Centro Acadêmico de Sistemas de Informação)</p>
     </footer>
   </div>
 </body>

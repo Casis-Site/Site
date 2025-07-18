@@ -1,0 +1,17 @@
+:root {
+  --primary-color: #014353;
+  --secondary-color: #b32564;
+  --tertiary-color: #027d89;
+  --accent-color: #ebb43b;
+  --text-primary: #111418;
+  --text-secondary: #617489;
+  --surface-background: #f8f9fa;
+  --border-color: #dbe0e6;
+}
+.icon-glow {
+  transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out; /*transicao bem suavezin para cor e sombra do texto*/
+}
+.icon-glow:hover {
+  color: var(--secondary-color);
+  text-shadow: 0 0 8px var(--secondary-color); /*efeito de brilho ao passar o mouse*/
+} 
