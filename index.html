@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sistemas de Informação - Campus Londrina</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <style>
+    :root {
+      --primary-color: #014353;
+      --secondary-color: #b32564;
+      --tertiary-color: #027d89;
+      --accent-color: #ebb43b;
+      --text-primary: #111418;
+      --text-secondary: #617489;
+      --surface-background: #f8f9fa;
+      --border-color: #dbe0e6;
+    }
+    .icon-glow {
+      transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out; /*transicao bem suavezin para cor e sombra do texto*/
+    }
+    .icon-glow:hover {
+      color: var(--secondary-color);
+      text-shadow: 0 0 8px var(--secondary-color); /*efeito de brilho ao passar o mouse*/
+    }
+  </style>
+</head>
+<body class="bg-white font-sans">
+  <div class="relative flex min-h-screen flex-col overflow-x-hidden" style='font-family: "Spline Sans", "Noto Sans", sans-serif;'>
+    <header class="sticky top-0 z-50 flex items-center justify-between border-b border-[var(--border-color)] bg-white/80 px-6 py-4 shadow-sm backdrop-blur-md md:px-10">
+      <div class="flex items-center gap-3 text-[var(--text-primary)]">
+        <img src="byte.png" alt="logo" class="w-12 h-12" /> <!-- tamanho fixo-->
+        <h1 class="text-xl font-bold leading-tight tracking-[-0.015em]">CASIS </h1>
+      </div>
+      <nav class="hidden items-center gap-6 md:flex"> <!--menu oculto em tela pequenas-->
+        <a href="#sobre" class="text-[var(--text-primary)] hover:text-[var(--secondary-color)] text-sm font-medium leading-normal transition-colors">Sobre o Curso</a>
+        <a href="#grade" class="text-[var(--text-primary)] hover:text-[var(--secondary-color)] text-sm font-medium leading-normal transition-colors">Grade Curricular</a>
+        <a href="#contato" class="text-[var(--text-primary)] hover:text-[var(--secondary-color)] text-sm font-medium leading-normal transition-colors">Contato</a>
+      </nav>
+      <button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center rounded-full h-10 px-6 bg-[var(--primary-color)] text-white text-sm font-bold leading-normal tracking-[0.015em] transition-all hover:bg-[var(--tertiary-color)] hover:shadow-lg active:scale-95" onclick="window.open('https://www.utfpr.edu.br/cursos/estudenautfpr', '_blank')">
+        <span class="truncate">Inicie aqui!</span>
+        <span class="material-symbols-outlined ml-2 text-lg">rocket_launch</span> <!--figuetinho-->
+      </button>
+      <button class="md:hidden rounded-md p-2 text-[var(--text-primary)] hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[var(--secondary-color)]">
+        <span class="material-symbols-outlined">menu</span> <!--botao menu pra mobile-->
+      </button>
+    </header>
+
+    <main class="flex flex-col flex-1">
+      <section
+        class="relative flex min-h-[400px] items-center justify-center bg-cover bg-center bg-no-repeat p-12 text-center text-white"
+        style='background-image: linear-gradient(rgba(1, 67, 83, 0.7), rgba(2, 125, 137, 0.9)), url("utfpr.webp");' 
+        /*fundo com gradiente escuro para melhorar contraste e imagem de fundo*/
+      >
+        <div class="max-w-2xl space-y-4 relative z-10">
+          <h1 class="text-4xl font-black tracking-tight md:text-5xl">Curso de Sistemas Informação - Londrina</h1>         
+        </div>
+      </section>
+
+      <section class="py-16 bg-[var(--surface-background)] px-4 md:px-10 lg:px-20" id="sobre">
+        <div class="mx-auto max-w-5xl">
+          <h2 class="mb-12 text-center text-3xl font-bold leading-tight tracking-tight text-[var(--text-primary)] md:text-4xl">
+            Diferenciais do Curso <span class="text-[var(--primary-color)]">de BSI</span>
+          </h2>
+          <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <div class="flex flex-col items-center gap-4 rounded-xl border border-[var(--border-color)] bg-white p-6 text-center shadow-lg transition-all hover:shadow-2xl transform hover:-translate-y-1">
+              <div class="rounded-full bg-[var(--primary-color)] p-4 text-white icon-glow">
+                <span class="material-symbols-outlined text-4xl">developer_mode</span>
+              </div>
+              <h3 class="text-xl font-bold text-[var(--text-primary)]">Tecnologia e Negócios</h3>
+              <p class="text-sm leading-relaxed text-[var(--text-secondary)]">
+                O profissional une conhecimento técnico com visão estratégica, atuando como ponte entre a TI e as metas da empresa.
+              </p>
+            </div>
+            <div class="flex flex-col items-center gap-4 rounded-xl border border-[var(--border-color)] bg-white p-6 text-center shadow-lg transition-all hover:shadow-2xl transform hover:-translate-y-1">
+              <div class="rounded-full bg-[var(--primary-color)] p-4 text-white icon-glow">
+                <span class="material-symbols-outlined text-4xl">hub</span>
+              </div>
+              <h3 class="text-xl font-bold text-[var(--text-primary)]">Base Técnica Sólida</h3>
+              <p class="text-sm leading-relaxed text-[var(--text-secondary)]">
+                Formação em áreas como programação, banco de dados, redes e inteligência artificial, com foco nas demandas atuais do mercado.
+              </p>
+            </div>
+            <div class="flex flex-col items-center gap-4 rounded-xl border border-[var(--border-color)] bg-white p-6 text-center shadow-lg transition-all hover:shadow-2xl transform hover:-translate-y-1">
+              <div class="rounded-full bg-[var(--primary-color)] p-4 text-white icon-glow">
+                <span class="material-symbols-outlined text-4xl">groups</span>
+              </div>
+              <h3 class="text-xl font-bold text-[var(--text-primary)]">Versatilidade no Mercado</h3>
+              <p class="text-sm leading-relaxed text-[var(--text-secondary)]">
+                Pode atuar em várias áreas: desenvolvimento, análise de dados, segurança, gestão de projetos e muito mais.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FINALIZAR GRADE CURRICULAR -->
+      <section class="py-16 px-4 md:px-10 lg:px-20" id="grade">
+        <div class="mx-auto max-w-3xl">
+          <h2 class="mb-12 text-center text-3xl font-bold leading-tight tracking-tight text-[var(--text-primary)] md:text-4xl">
+            Grade Curricular do Primeiro semestre<span class="text-[var(--tertiary-color)]">
+          </h2>
+          <ul class="list-disc list-inside space-y-2 text-[var(--text-primary)] text-lg">
+            <li>Engenharia De Software - 1º Semestre </li>
+            <li>Fundamentos De Sistemas De Informação - 1º Semestre </li>
+            <li>Algoritmos E Lógica De Programação - 1º Semestre </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="py-16 px-4 md:px-10 lg:px-20" id="contato">
+        <div class="mx-auto max-w-3xl text-center">
+          <h2 class="mb-8 text-3xl font-bold leading-tight tracking-tight text-[var(--text-primary)] md:text-4xl">
+            Quer iniciar essa <a href="https://www.utfpr.edu.br/cursos/estudenautfpr" target="_blank" class="text-[var(--primary-color)] hover:underline">jornada com a gente?</a>
+          </h2>
+          <p class="mb-8 text-lg text-[var(--text-secondary)]">Venha para UTFPR-LD</p>
+          <a href="mailto:casis.londrina@gmail.com" class="inline-flex min-w-[84px] max-w-xs cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-8 mx-auto bg-[var(--secondary-color)] text-white text-base font-bold leading-normal tracking-[0.015em] transition-all hover:bg-[#961e52] hover:shadow-xl active:scale-95 transform hover:scale-105 no-underline">
+            <span class="truncate">Dúvidas? Entre em Contato</span>
+            <span class="material-symbols-outlined ml-2">email</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-[var(--border-color)] bg-gray-50 py-8 text-center">
+      <p class="text-sm text-[var(--text-secondary)]">© 2025 Sistemas de Informação</p>
+      <p class="mt-2 text-xs text-gray-400">Verônica, Caio, Victor</p>
+    </footer>
+  </div>
+</body>
+</html>
