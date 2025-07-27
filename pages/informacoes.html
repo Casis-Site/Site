@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Informações - Casis - Londrina</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <script>
+    // Theme toggle functionality
+    function toggleTheme() {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      
+      // Update button icon
+      const themeButton = document.getElementById('theme-toggle');
+      const icon = themeButton.querySelector('.material-symbols-outlined');
+      icon.textContent = newTheme === 'dark' ? 'light_mode' : 'dark_mode';
+    }
+    
+    // Initialize theme
+    function initializeTheme() {
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      
+      const themeButton = document.getElementById('theme-toggle');
+      if (themeButton) {
+        const icon = themeButton.querySelector('.material-symbols-outlined');
+        icon.textContent = savedTheme === 'dark' ? 'light_mode' : 'dark_mode';
+      }
+    }
+    
+    // Run on page load
+    document.addEventListener('DOMContentLoaded', initializeTheme);
+  </script>
+</head>
+<body class="bg-[var(--surface-background)] font-sans transition-colors duration-300">
+  <div class="relative flex min-h-screen flex-col overflow-x-hidden" style='font-family: "Spline Sans", "Noto Sans", sans-serif;'>
+    <header class="sticky top-0 z-50 flex items-center justify-between border-b border-[var(--border-color)] bg-[var(--surface-background)]/80 px-6 py-4 shadow-sm backdrop-blur-md md:px-10 transition-colors duration-300">
+      <div class="flex items-center gap-3 text-[var(--text-primary)]">
+        <img src="../assets/byte.png" alt="logo" class="w-12 h-12" />
+        <h1 class="text-xl font-bold leading-tight tracking-[-0.015em]">CASIS </h1>
+      </div>
+      <div class="flex items-center gap-6">
+        <nav class="hidden items-center gap-6 md:flex">
+          <a href="../index.html" class="text-[var(--text-primary)] hover:text-[var(--secondary-color)] text-sm font-medium leading-normal transition-colors">Home</a>
+          <a href="o-que-e-o-casis.html" class="text-[var(--text-primary)] hover:text-[var(--secondary-color)] text-sm font-medium leading-normal transition-colors">O que é o Casis?</a>
+          <a href="informacoes.html" class="text-[var(--text-primary)] hover:text-[var(--secondary-color)] text-sm font-medium leading-normal transition-colors">Informações</a>
+        </nav>
+        <button id="theme-toggle" onclick="toggleTheme()" class="rounded-md p-2 text-[var(--text-primary)] hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[var(--secondary-color)] transition-colors">
+          <span class="material-symbols-outlined">dark_mode</span>
+        </button>
+        <button class="md:hidden rounded-md p-2 text-[var(--text-primary)] hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[var(--secondary-color)]">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+    </header>
+
+    <main class="flex flex-col flex-1">
+      <section class="py-16 bg-[var(--surface-background)] px-4 md:px-10 lg:px-20">
+        <div class="mx-auto max-w-6xl">
+          <h1 class="mb-12 text-center text-3xl font-bold leading-tight tracking-tight text-[var(--text-primary)] md:text-4xl">
+            <span class="text-[var(--primary-color)]">Informações</span> do Curso
+          </h1>
+          
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Informações Gerais -->
+            <div class="space-y-6">
+              <div class="bg-[var(--surface-background)] rounded-xl border border-[var(--border-color)] p-6 shadow-lg">
+                <h2 class="text-xl font-bold text-[var(--text-primary)] mb-4 flex items-center gap-2">
+                  <span class="material-symbols-outlined text-[var(--primary-color)]">info</span>
+                  Informações Gerais
+                </h2>
+                <div class="space-y-3">
+                  <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                    <span class="font-medium text-[var(--text-secondary)]">Curso:</span>
+                    <span class="text-[var(--text-primary)] font-semibold">Bacharelado em Sistemas de Informação</span>
+                  </div>
+                  <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                    <span class="font-medium text-[var(--text-secondary)]">Campus:</span>
+                    <span class="text-[var(--text-primary)] font-semibold">UTFPR - Londrina</span>
+                  </div>
+                  <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                    <span class="font-medium text-[var(--text-secondary)]">Modalidade:</span>
+                    <span class="text-[var(--text-primary)] font-semibold">Presencial</span>
+                  </div>
+                  <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                    <span class="font-medium text-[var(--text-secondary)]">Turno:</span>
+                    <span class="text-[var(--text-primary)] font-semibold">Noturno</span>
+                  </div>
+                  <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                    <span class="font-medium text-[var(--text-secondary)]">Duração:</span>
+                    <span class="text-[var(--text-primary)] font-semibold">4 anos (8 semestres)</span>
+                  </div>
+                  <div class="flex justify-between items-center py-2">
+                    <span class="font-medium text-[var(--text-secondary)]">Vagas:</span>
+                    <span class="text-[var(--text-primary)] font-semibold">40 por ano</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-[var(--surface-background)] rounded-xl border border-[var(--border-color)] p-6 shadow-lg">
+                <h2 class="text-xl font-bold text-[var(--text-primary)] mb-4 flex items-center gap-2">
+                  <span class="material-symbols-outlined text-[var(--primary-color)]">schedule</span>
+                  Horários e Localização
+                </h2>
+                <div class="space-y-3">
+                  <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                    <span class="font-medium text-[var(--text-secondary)]">Aulas:</span>
+                    <span class="text-[var(--text-primary)] font-semibold">19h às 22h30</span>
+                  </div>
+                  <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                    <span class="font-medium text-[var(--text-secondary)]">Prédio:</span>
+                    <span class="text-[var(--text-primary)] font-semibold">Prédio Central</span>
+                  </div>
+                  <div class="flex justify-between items-center py-2">
+                    <span class="font-medium text-[var(--text-secondary)]">Endereço:</span>
+                    <span class="text-[var(--text-primary)] font-semibold text-right">Av. dos Pioneiros, 3131</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Coordenação e Contatos -->
+            <div class="space-y-6">
+              <div class="bg-[var(--surface-background)] rounded-xl border border-[var(--border-color)] p-6 shadow-lg">
+                <h2 class="text-xl font-bold text-[var(--text-primary)] mb-4 flex items-center gap-2">
+                  <span class="material-symbols-outlined text-[var(--primary-color)]">person</span>
+                  Coordenação do Curso
+                </h2>
+                <div class="space-y-4">
+                  <div>
+                    <h3 class="font-semibold text-[var(--text-primary)] mb-1">Coordenador(a)</h3>
+                    <p class="text-[var(--text-secondary)]">Prof. Dr. [Nome do Coordenador]</p>
+                  </div>
+                  <div>
+                    <h3 class="font-semibold text-[var(--text-primary)] mb-1">Vice-Coordenador(a)</h3>
+                    <p class="text-[var(--text-secondary)]">Prof. Dr. [Nome do Vice-Coordenador]</p>
+                  </div>
+                  <div class="pt-4 border-t border-gray-100">
+                    <h3 class="font-semibold text-[var(--text-primary)] mb-2">Contato da Coordenação</h3>
+                    <div class="space-y-2">
+                      <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-sm text-[var(--secondary-color)]">email</span>
+                        <span class="text-[var(--text-secondary)]">coordenacao.bsi@utfpr.edu.br</span>
+                      </div>
+                      <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-sm text-[var(--secondary-color)]">phone</span>
+                        <span class="text-[var(--text-secondary)]">(43) 3315-7000</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-[var(--surface-background)] rounded-xl border border-[var(--border-color)] p-6 shadow-lg">
+                <h2 class="text-xl font-bold text-[var(--text-primary)] mb-4 flex items-center gap-2">
+                  <span class="material-symbols-outlined text-[var(--primary-color)]">support_agent</span>
+                  Suporte e Contatos
+                </h2>
+                <div class="space-y-4">
+                  <div>
+                    <h3 class="font-semibold text-[var(--text-primary)] mb-2">CASIS</h3>
+                    <div class="space-y-2">
+                      <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-sm text-[var(--secondary-color)]">email</span>
+                        <span class="text-[var(--text-secondary)]">casis.londrina@gmail.com</span>
+                      </div>
+                      <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-sm text-[var(--secondary-color)]">group</span>
+                        <span class="text-[var(--text-secondary)]">@casis.londrina</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="pt-4 border-t border-gray-100">
+                    <h3 class="font-semibold text-[var(--text-primary)] mb-2">Secretaria Acadêmica</h3>
+                    <div class="space-y-2">
+                      <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-sm text-[var(--secondary-color)]">email</span>
+                        <span class="text-[var(--text-secondary)]">secretaria.londrina@utfpr.edu.br</span>
+                      </div>
+                      <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-sm text-[var(--secondary-color)]">phone</span>
+                        <span class="text-[var(--text-secondary)]">(43) 3315-7000</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Links Úteis -->
+          <div class="mt-12 bg-[var(--surface-background)] rounded-xl border border-[var(--border-color)] p-8 shadow-lg">
+            <h2 class="text-2xl font-bold text-[var(--text-primary)] mb-6 text-center">Links Úteis</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <a href="https://www.utfpr.edu.br/cursos/estudenautfpr" target="_blank" class="flex flex-col items-center p-6 rounded-xl border border-[var(--border-color)] hover:shadow-lg transition-all hover:-translate-y-1">
+                <span class="material-symbols-outlined text-4xl text-[var(--primary-color)] mb-3">school</span>
+                <h3 class="font-bold text-[var(--text-primary)] mb-2">Estude na UTFPR</h3>
+                <p class="text-sm text-[var(--text-secondary)] text-center">Processo seletivo e inscrições</p>
+              </a>
+              <a href="https://www.utfpr.edu.br/campus/londrina" target="_blank" class="flex flex-col items-center p-6 rounded-xl border border-[var(--border-color)] hover:shadow-lg transition-all hover:-translate-y-1">
+                <span class="material-symbols-outlined text-4xl text-[var(--primary-color)] mb-3">location_on</span>
+                <h3 class="font-bold text-[var(--text-primary)] mb-2">Campus Londrina</h3>
+                <p class="text-sm text-[var(--text-secondary)] text-center">Informações do campus</p>
+              </a>
+              <a href="https://portal.utfpr.edu.br/" target="_blank" class="flex flex-col items-center p-6 rounded-xl border border-[var(--border-color)] hover:shadow-lg transition-all hover:-translate-y-1">
+                <span class="material-symbols-outlined text-4xl text-[var(--primary-color)] mb-3">account_circle</span>
+                <h3 class="font-bold text-[var(--text-primary)] mb-2">Portal do Aluno</h3>
+                <p class="text-sm text-[var(--text-secondary)] text-center">Acesso ao sistema acadêmico</p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-[var(--border-color)] bg-[var(--surface-background)] py-8 text-center">
+      <p class="text-sm text-[var(--text-secondary)]">© 2025 Sistemas de Informação</p>
+              <p class="mt-2 text-xs text-[var(--text-secondary)]">Feito pelo CASIS(Centro Acadêmico de Sistemas de Informação)</p>
+    </footer>
+  </div>
+</body>
+</html> 

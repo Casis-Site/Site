@@ -8,10 +8,35 @@
   --surface-background: #f8f9fa;
   --border-color: #dbe0e6;
 }
+
+/* Dark theme variables */
+[data-theme="dark"] {
+  --primary-color: #027d89;
+  --secondary-color: #b32564;
+  --tertiary-color: #014353;
+  --accent-color: #ebb43b;
+  --text-primary: #f8f9fa;
+  --text-secondary: #adb5bd;
+  --surface-background: #1a1d21;
+  --border-color: #343a40;
+}
 .icon-glow {
   transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out; /*transicao bem suavezin para cor e sombra do texto*/
 }
 .icon-glow:hover {
   color: var(--secondary-color);
   text-shadow: 0 0 8px var(--secondary-color); /*efeito de brilho ao passar o mouse*/
+}
+
+/* Smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Fixed scroll for first section */
+.hero-section {
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 } 

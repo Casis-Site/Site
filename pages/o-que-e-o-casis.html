@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>O que é o CASIS? - Casis - Londrina</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <script>
+    // Theme toggle functionality
+    function toggleTheme() {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      
+      // Update button icon
+      const themeButton = document.getElementById('theme-toggle');
+      const icon = themeButton.querySelector('.material-symbols-outlined');
+      icon.textContent = newTheme === 'dark' ? 'light_mode' : 'dark_mode';
+    }
+    
+    // Initialize theme
+    function initializeTheme() {
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      
+      const themeButton = document.getElementById('theme-toggle');
+      if (themeButton) {
+        const icon = themeButton.querySelector('.material-symbols-outlined');
+        icon.textContent = savedTheme === 'dark' ? 'light_mode' : 'dark_mode';
+      }
+    }
+    
+    // Run on page load
+    document.addEventListener('DOMContentLoaded', initializeTheme);
+  </script>
+</head>
+<body class="bg-[var(--surface-background)] font-sans transition-colors duration-300">
+  <div class="relative flex min-h-screen flex-col overflow-x-hidden" style='font-family: "Spline Sans", "Noto Sans", sans-serif;'>
+    <header class="sticky top-0 z-50 flex items-center justify-between border-b border-[var(--border-color)] bg-[var(--surface-background)]/80 px-6 py-4 shadow-sm backdrop-blur-md md:px-10 transition-colors duration-300">
+      <div class="flex items-center gap-3 text-[var(--text-primary)]">
+        <img src="../assets/byte.png" alt="logo" class="w-12 h-12" />
+        <h1 class="text-xl font-bold leading-tight tracking-[-0.015em]">CASIS </h1>
+      </div>
+      <div class="flex items-center gap-6">
+        <nav class="hidden items-center gap-6 md:flex">
+          <a href="../index.html" class="text-[var(--text-primary)] hover:text-[var(--secondary-color)] text-sm font-medium leading-normal transition-colors">Home</a>
+          <a href="o-que-e-o-casis.html" class="text-[var(--text-primary)] hover:text-[var(--secondary-color)] text-sm font-medium leading-normal transition-colors">O que é o Casis?</a>
+          <a href="informacoes.html" class="text-[var(--text-primary)] hover:text-[var(--secondary-color)] text-sm font-medium leading-normal transition-colors">Informações</a>
+        </nav>
+        <button id="theme-toggle" onclick="toggleTheme()" class="rounded-md p-2 text-[var(--text-primary)] hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[var(--secondary-color)] transition-colors">
+          <span class="material-symbols-outlined">dark_mode</span>
+        </button>
+        <button class="md:hidden rounded-md p-2 text-[var(--text-primary)] hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[var(--secondary-color)]">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+    </header>
+
+    <main class="flex flex-col flex-1">
+      <section class="py-16 bg-[var(--surface-background)] px-4 md:px-10 lg:px-20">
+        <div class="mx-auto max-w-4xl">
+          <h1 class="mb-12 text-center text-3xl font-bold leading-tight tracking-tight text-[var(--text-primary)] md:text-4xl">
+            O que é o <span class="text-[var(--primary-color)]">CASIS</span>?
+          </h1>
+          
+          <div class="space-y-8">
+            <div class="bg-[var(--surface-background)] rounded-xl border border-[var(--border-color)] p-8 shadow-lg">
+              <h2 class="text-2xl font-bold text-[var(--text-primary)] mb-4">Centro Acadêmico de Sistemas de Informação</h2>
+              <p class="text-lg text-[var(--text-secondary)] leading-relaxed mb-6">
+                O CASIS (Centro Acadêmico de Sistemas de Informação) é a entidade representativa dos estudantes do curso de Bacharelado em Sistemas de Informação da UTFPR - Campus Londrina.
+              </p>
+              <p class="text-lg text-[var(--text-secondary)] leading-relaxed">
+                Nossa missão é promover a integração entre os estudantes, organizar eventos acadêmicos, representar os interesses da turma junto à coordenação do curso e contribuir para o desenvolvimento profissional e pessoal dos alunos.
+              </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div class="bg-[var(--surface-background)] rounded-xl border border-[var(--border-color)] p-6 shadow-lg">
+                <div class="rounded-full bg-[var(--primary-color)] p-4 text-white icon-glow w-16 h-16 flex items-center justify-center mb-4">
+                  <span class="material-symbols-outlined text-3xl">groups</span>
+                </div>
+                <h3 class="text-xl font-bold text-[var(--text-primary)] mb-3">Representação Estudantil</h3>
+                <p class="text-[var(--text-secondary)] leading-relaxed">
+                  Representamos os interesses dos estudantes junto à coordenação do curso, participando de reuniões e contribuindo para melhorias na grade curricular e infraestrutura.
+                </p>
+              </div>
+
+              <div class="bg-[var(--surface-background)] rounded-xl border border-[var(--border-color)] p-6 shadow-lg">
+                <div class="rounded-full bg-[var(--primary-color)] p-4 text-white icon-glow w-16 h-16 flex items-center justify-center mb-4">
+                  <span class="material-symbols-outlined text-3xl">event</span>
+                </div>
+                <h3 class="text-xl font-bold text-[var(--text-primary)] mb-3">Eventos Acadêmicos</h3>
+                <p class="text-[var(--text-secondary)] leading-relaxed">
+                  Organizamos palestras, workshops, minicursos e outros eventos que complementam a formação acadêmica e aproximam os estudantes do mercado de trabalho.
+                </p>
+              </div>
+
+              <div class="bg-[var(--surface-background)] rounded-xl border border-[var(--border-color)] p-6 shadow-lg">
+                <div class="rounded-full bg-[var(--primary-color)] p-4 text-white icon-glow w-16 h-16 flex items-center justify-center mb-4">
+                  <span class="material-symbols-outlined text-3xl">handshake</span>
+                </div>
+                <h3 class="text-xl font-bold text-[var(--text-primary)] mb-3">Networking</h3>
+                <p class="text-[var(--text-secondary)] leading-relaxed">
+                  Facilitamos a integração entre estudantes de diferentes períodos, criando oportunidades de networking e troca de experiências.
+                </p>
+              </div>
+
+              <div class="bg-[var(--surface-background)] rounded-xl border border-[var(--border-color)] p-6 shadow-lg">
+                <div class="rounded-full bg-[var(--primary-color)] p-4 text-white icon-glow w-16 h-16 flex items-center justify-center mb-4">
+                  <span class="material-symbols-outlined text-3xl">school</span>
+                </div>
+                <h3 class="text-xl font-bold text-[var(--text-primary)] mb-3">Desenvolvimento Profissional</h3>
+                <p class="text-[var(--text-secondary)] leading-relaxed">
+                  Promovemos atividades que desenvolvem habilidades técnicas e soft skills, preparando os estudantes para o mercado de trabalho.
+                </p>
+              </div>
+            </div>
+
+            <div class="bg-[var(--surface-background)] rounded-xl border border-[var(--border-color)] p-8 shadow-lg">
+              <h2 class="text-2xl font-bold text-[var(--text-primary)] mb-6 text-center">Como Participar</h2>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="text-center">
+                  <div class="rounded-full bg-[var(--secondary-color)] p-4 text-white mx-auto w-16 h-16 flex items-center justify-center mb-4">
+                    <span class="material-symbols-outlined text-3xl">person_add</span>
+                  </div>
+                  <h3 class="text-lg font-bold text-[var(--text-primary)] mb-2">Seja um Membro</h3>
+                  <p class="text-[var(--text-secondary)] text-sm">
+                    Participe das reuniões e ajude a organizar eventos e atividades do centro acadêmico.
+                  </p>
+                </div>
+                <div class="text-center">
+                  <div class="rounded-full bg-[var(--secondary-color)] p-4 text-white mx-auto w-16 h-16 flex items-center justify-center mb-4">
+                    <span class="material-symbols-outlined text-3xl">volunteer_activism</span>
+                  </div>
+                  <h3 class="text-lg font-bold text-[var(--text-primary)] mb-2">Contribua</h3>
+                  <p class="text-[var(--text-secondary)] text-sm">
+                    Compartilhe suas ideias e sugestões para melhorar o curso e a experiência dos estudantes.
+                  </p>
+                </div>
+                <div class="text-center">
+                  <div class="rounded-full bg-[var(--secondary-color)] p-4 text-white mx-auto w-16 h-16 flex items-center justify-center mb-4">
+                    <span class="material-symbols-outlined text-3xl">share</span>
+                  </div>
+                  <h3 class="text-lg font-bold text-[var(--text-primary)] mb-2">Divulgue</h3>
+                  <p class="text-[var(--text-secondary)] text-sm">
+                    Ajude a divulgar os eventos e atividades do CASIS para outros estudantes.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-[var(--border-color)] bg-[var(--surface-background)] py-8 text-center">
+      <p class="text-sm text-[var(--text-secondary)]">© 2025 Sistemas de Informação</p>
+              <p class="mt-2 text-xs text-[var(--text-secondary)]">Feito pelo CASIS(Centro Acadêmico de Sistemas de Informação)</p>
+    </footer>
+  </div>
+</body>
+</html> 
