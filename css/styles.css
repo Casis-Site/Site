@@ -20,6 +20,7 @@
   --surface-background: #1a1d21;
   --border-color: #343a40;
 }
+
 .icon-glow {
   transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out; /*transicao bem suavezin para cor e sombra do texto*/
 }
@@ -39,4 +40,246 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Mobile Responsiveness Improvements */
+@media (max-width: 768px) {
+  /* Header adjustments for mobile */
+  header {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  
+  /* Logo and title adjustments */
+  header h1 {
+    font-size: 1.125rem !important;
+  }
+  
+  /* Hero section mobile adjustments */
+  .hero-section {
+    min-height: 300px;
+    padding: 2rem 1rem !important;
+  }
+  
+  .hero-section h1 {
+    font-size: 1.875rem !important;
+    line-height: 2.25rem !important;
+  }
+  
+  /* Navigation links mobile adjustments */
+  .nav-links {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+  
+  .nav-links a {
+    width: 100%;
+    text-align: center;
+    padding: 0.75rem 1rem;
+  }
+  
+  /* Card and section spacing */
+  .card, .section-card {
+    margin-bottom: 1rem;
+    padding: 1rem !important;
+  }
+  
+  /* Grid adjustments for mobile */
+  .grid-cols-1.md\\:grid-cols-2 {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .grid-cols-1.md\\:grid-cols-3 {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* Text size adjustments */
+  h1 {
+    font-size: 1.875rem !important;
+  }
+  
+  h2 {
+    font-size: 1.5rem !important;
+  }
+  
+  h3 {
+    font-size: 1.25rem !important;
+  }
+  
+  /* Button adjustments */
+  button {
+    min-height: 2.75rem;
+    padding: 0.5rem 1rem;
+  }
+  
+  /* Info cards mobile layout */
+  .info-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .info-card .flex.justify-between {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+  
+  /* Contact info mobile layout */
+  .contact-info {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .contact-info .flex.items-center {
+    justify-content: center;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  /* Further reduce padding and margins */
+  .px-4.md\\:px-10.lg\\:px-20 {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+  
+  /* Smaller text for very small screens */
+  .hero-section h1 {
+    font-size: 1.5rem !important;
+    line-height: 2rem !important;
+  }
+  
+  /* Compact header */
+  header {
+    padding: 0.75rem 0.5rem !important;
+  }
+  
+  header img {
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+  }
+  
+  header h1 {
+    font-size: 1rem !important;
+  }
+  
+  /* Compact buttons */
+  button {
+    min-height: 2.5rem;
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* Touch-friendly improvements */
+@media (hover: none) and (pointer: coarse) {
+  /* Larger touch targets */
+  button, a {
+    min-height: 2.75rem;
+    min-width: 2.75rem;
+  }
+  
+  /* Remove hover effects on touch devices */
+  .icon-glow:hover {
+    color: inherit;
+    text-shadow: none;
+  }
+  
+  /* Add active states for touch feedback */
+  button:active, a:active {
+    transform: scale(0.95);
+  }
+}
+
+/* Landscape mobile adjustments */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero-section {
+    min-height: 250px;
+    padding: 1rem !important;
+  }
+  
+  .hero-section h1 {
+    font-size: 1.5rem !important;
+  }
+}
+
+/* Additional mobile improvements */
+@media (max-width: 640px) {
+  /* Improve text readability on small screens */
+  body {
+    font-size: 14px;
+  }
+  
+  /* Better spacing for mobile */
+  .space-y-3 > * + * {
+    margin-top: 0.75rem;
+  }
+  
+  .space-y-4 > * + * {
+    margin-top: 1rem;
+  }
+  
+  .space-y-6 > * + * {
+    margin-top: 1.5rem;
+  }
+  
+  /* Improve button touch targets */
+  button, a[role="button"] {
+    min-height: 3rem;
+    min-width: 3rem;
+  }
+  
+  /* Better card spacing on mobile */
+  .card, .section-card {
+    margin-bottom: 1rem;
+    padding: 1rem !important;
+  }
+  
+  /* Improve grid layouts for very small screens */
+  .grid-cols-1.sm\\:grid-cols-2 {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* Better text alignment for mobile */
+  .text-center.md\\:text-left {
+    text-align: center !important;
+  }
+  
+  .text-right.md\\:text-right {
+    text-align: center !important;
+  }
+}
+
+/* High DPI display improvements */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /* Ensure crisp icons and images */
+  img, svg {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Print styles */
+@media print {
+  /* Hide mobile menu and navigation elements */
+  #mobile-menu,
+  #mobile-menu-toggle,
+  .md\\:hidden {
+    display: none !important;
+  }
+  
+  /* Ensure good contrast for printing */
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  /* Remove shadows and effects for cleaner print */
+  .shadow-lg,
+  .shadow-xl,
+  .backdrop-blur-md {
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+  }
 } 

@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>O que é o CASIS? - Casis - Londrina</title>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
@@ -36,6 +37,46 @@
     
     // Run on page load
     document.addEventListener('DOMContentLoaded', initializeTheme);
+    
+    // Mobile menu functionality
+    function initializeMobileMenu() {
+      const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const mobileMenuClose = document.getElementById('mobile-menu-close');
+      const mobileMenuOverlay = mobileMenu;
+      
+      function openMobileMenu() {
+        mobileMenu.classList.remove('hidden');
+        setTimeout(() => {
+          mobileMenu.querySelector('.fixed.inset-y-0').classList.remove('translate-x-full');
+        }, 10);
+      }
+      
+      function closeMobileMenu() {
+        mobileMenu.querySelector('.fixed.inset-y-0').classList.add('translate-x-full');
+        setTimeout(() => {
+          mobileMenu.classList.add('hidden');
+        }, 300);
+      }
+      
+      mobileMenuToggle.addEventListener('click', openMobileMenu);
+      mobileMenuClose.addEventListener('click', closeMobileMenu);
+      mobileMenuOverlay.addEventListener('click', (e) => {
+        if (e.target === mobileMenuOverlay) {
+          closeMobileMenu();
+        }
+      });
+      
+      // Close menu on escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+          closeMobileMenu();
+        }
+      });
+    }
+    
+    // Initialize mobile menu
+    document.addEventListener('DOMContentLoaded', initializeMobileMenu);
   </script>
 </head>
 <body class="bg-[var(--surface-background)] font-sans transition-colors duration-300">
@@ -54,11 +95,28 @@
         <button id="theme-toggle" onclick="toggleTheme()" class="rounded-md p-2 text-[var(--text-primary)] hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[var(--secondary-color)] transition-colors">
           <span class="material-symbols-outlined">dark_mode</span>
         </button>
-        <button class="md:hidden rounded-md p-2 text-[var(--text-primary)] hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[var(--secondary-color)]">
+        <button id="mobile-menu-toggle" class="md:hidden rounded-md p-2 text-[var(--text-primary)] hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[var(--secondary-color)]">
           <span class="material-symbols-outlined">menu</span>
         </button>
       </div>
     </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden fixed inset-0 z-40 bg-black bg-opacity-50 hidden">
+      <div class="fixed inset-y-0 right-0 w-64 bg-[var(--surface-background)] shadow-lg transform translate-x-full transition-transform duration-300">
+        <div class="flex items-center justify-between p-4 border-b border-[var(--border-color)]">
+          <h2 class="text-lg font-bold text-[var(--text-primary)]">Menu</h2>
+          <button id="mobile-menu-close" class="rounded-md p-2 text-[var(--text-primary)] hover:bg-gray-100 dark:hover:bg-gray-800">
+            <span class="material-symbols-outlined">close</span>
+          </button>
+        </div>
+        <nav class="p-4 space-y-4">
+          <a href="../index.html" class="block text-[var(--text-primary)] hover:text-[var(--secondary-color)] text-base font-medium py-3 px-4 rounded-md hover:bg-[var(--border-color)] transition-colors">Home</a>
+          <a href="o-que-e-o-casis.html" class="block text-[var(--text-primary)] hover:text-[var(--secondary-color)] text-base font-medium py-3 px-4 rounded-md hover:bg-[var(--border-color)] transition-colors">O que é o Casis?</a>
+          <a href="informacoes.html" class="block text-[var(--text-primary)] hover:text-[var(--secondary-color)] text-base font-medium py-3 px-4 rounded-md hover:bg-[var(--border-color)] transition-colors">Informações</a>
+        </nav>
+      </div>
+    </div>
 
     <main class="flex flex-col flex-1">
       <section class="py-16 bg-[var(--surface-background)] px-4 md:px-10 lg:px-20">

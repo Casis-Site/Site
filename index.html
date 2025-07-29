@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Casis - Londrina</title>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
@@ -36,6 +37,46 @@
     
     // Run on page load
     document.addEventListener('DOMContentLoaded', initializeTheme);
+    
+    // Mobile menu functionality
+    function initializeMobileMenu() {
+      const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const mobileMenuClose = document.getElementById('mobile-menu-close');
+      const mobileMenuOverlay = mobileMenu;
+      
+      function openMobileMenu() {
+        mobileMenu.classList.remove('hidden');
+        setTimeout(() => {
+          mobileMenu.querySelector('.fixed.inset-y-0').classList.remove('translate-x-full');
+        }, 10);
+      }
+      
+      function closeMobileMenu() {
+        mobileMenu.querySelector('.fixed.inset-y-0').classList.add('translate-x-full');
+        setTimeout(() => {
+          mobileMenu.classList.add('hidden');
+        }, 300);
+      }
+      
+      mobileMenuToggle.addEventListener('click', openMobileMenu);
+      mobileMenuClose.addEventListener('click', closeMobileMenu);
+      mobileMenuOverlay.addEventListener('click', (e) => {
+        if (e.target === mobileMenuOverlay) {
+          closeMobileMenu();
+        }
+      });
+      
+      // Close menu on escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+          closeMobileMenu();
+        }
+      });
+    }
+    
+    // Initialize mobile menu
+    document.addEventListener('DOMContentLoaded', initializeMobileMenu);
   </script>
 </head>
 <body class="bg-[var(--surface-background)] font-sans transition-colors duration-300">
@@ -54,11 +95,28 @@
         <button id="theme-toggle" onclick="toggleTheme()" class="rounded-md p-2 text-[var(--text-primary)] hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[var(--secondary-color)] transition-colors">
           <span class="material-symbols-outlined">dark_mode</span>
         </button>
-        <button class="md:hidden rounded-md p-2 text-[var(--text-primary)] hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[var(--secondary-color)]">
-          <span class="material-symbols-outlined">menu</span> <!--botao menu pra mobile-->
+        <button id="mobile-menu-toggle" class="md:hidden rounded-md p-2 text-[var(--text-primary)] hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[var(--secondary-color)]">
+          <span class="material-symbols-outlined">menu</span>
         </button>
       </div>
     </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden fixed inset-0 z-40 bg-black bg-opacity-50 hidden">
+      <div class="fixed inset-y-0 right-0 w-64 bg-[var(--surface-background)] shadow-lg transform translate-x-full transition-transform duration-300">
+        <div class="flex items-center justify-between p-4 border-b border-[var(--border-color)]">
+          <h2 class="text-lg font-bold text-[var(--text-primary)]">Menu</h2>
+          <button id="mobile-menu-close" class="rounded-md p-2 text-[var(--text-primary)] hover:bg-gray-100 dark:hover:bg-gray-800">
+            <span class="material-symbols-outlined">close</span>
+          </button>
+        </div>
+        <nav class="p-4 space-y-4">
+          <a href="index.html" class="block text-[var(--text-primary)] hover:text-[var(--secondary-color)] text-base font-medium py-3 px-4 rounded-md hover:bg-[var(--border-color)] transition-colors">Home</a>
+          <a href="pages/o-que-e-o-casis.html" class="block text-[var(--text-primary)] hover:text-[var(--secondary-color)] text-base font-medium py-3 px-4 rounded-md hover:bg-[var(--border-color)] transition-colors">O que é o Casis?</a>
+          <a href="pages/informacoes.html" class="block text-[var(--text-primary)] hover:text-[var(--secondary-color)] text-base font-medium py-3 px-4 rounded-md hover:bg-[var(--border-color)] transition-colors">Informações</a>
+        </nav>
+      </div>
+    </div>
 
     <main class="flex flex-col flex-1">
       <section
@@ -66,7 +124,7 @@
         style='background: linear-gradient(rgba(1, 67, 83, 0.7), rgba(2, 125, 137, 0.9)), url("assets/utfpr.webp") center -200px / cover no-repeat;' 
         /*fundo com gradiente escuro para melhorar contraste e imagem de fundo*/
       >
-        <div class="max-w-3xl space-y-6 relative z-10 p-12">
+        <div class="max-w-3xl space-y-6 relative z-10 p-30 pt-60 pb-40">
           <h1 class="text-4xl font-black tracking-tight md:text-5xl">Bacharelado em Sistemas de Informação - Londrina</h1>
           <button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center rounded-full h-12 px-8 mx-auto bg-[var(--primary-color)] text-white text-base font-bold leading-normal tracking-[0.015em] transition-all hover:bg-[var(--tertiary-color)] hover:shadow-lg active:scale-95" onclick="window.open('https://www.utfpr.edu.br/cursos/estudenautfpr', '_blank')">
             <span class="truncate">Inicie aqui!</span>
@@ -78,14 +136,14 @@
       <!-- Navigation Links Section -->
       <section class="py-8 bg-[var(--surface-background)] border-b border-[var(--border-color)]">
         <div class="mx-auto max-w-4xl px-4 md:px-10">
-          <nav class="flex justify-center items-center gap-8 md:gap-12">
-            <a href="#sobre" class="text-[var(--text-primary)] hover:text-[var(--secondary-color)] text-base font-medium leading-normal transition-colors py-2 px-4 rounded-md hover:bg-[var(--border-color)]">
+          <nav class="nav-links flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 lg:gap-12">
+            <a href="#sobre" class="text-[var(--text-primary)] hover:text-[var(--secondary-color)] text-base font-medium leading-normal transition-colors py-2 px-4 rounded-md hover:bg-[var(--border-color)] w-full md:w-auto text-center">
               Sobre o Curso
             </a>
-            <a href="#grade" class="text-[var(--text-primary)] hover:text-[var(--secondary-color)] text-base font-medium leading-normal transition-colors py-2 px-4 rounded-md hover:bg-[var(--border-color)]">
+            <a href="#grade" class="text-[var(--text-primary)] hover:text-[var(--secondary-color)] text-base font-medium leading-normal transition-colors py-2 px-4 rounded-md hover:bg-[var(--border-color)] w-full md:w-auto text-center">
               Grade Curricular
             </a>
-            <a href="#contato" class="text-[var(--text-primary)] hover:text-[var(--secondary-color)] text-base font-medium leading-normal transition-colors py-2 px-4 rounded-md hover:bg-[var(--border-color)]">
+            <a href="#contato" class="text-[var(--text-primary)] hover:text-[var(--secondary-color)] text-base font-medium leading-normal transition-colors py-2 px-4 rounded-md hover:bg-[var(--border-color)] w-full md:w-auto text-center">
               Contato
             </a>
           </nav>
@@ -174,7 +232,7 @@
           </h2>
           
           <!-- Grade por Períodos -->
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             
             <!-- 1º Período -->
             <div class="bg-[var(--surface-background)] rounded-xl border border-[var(--border-color)] p-6 shadow-lg">
@@ -573,7 +631,7 @@
           <!-- Legenda -->
           <div class="mt-12 bg-[var(--surface-background)] rounded-xl p-6">
             <h4 class="text-lg font-bold text-[var(--text-primary)] mb-4">Legenda</h4>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 text-sm">
               <div>
                 <h5 class="font-semibold text-[var(--primary-color)] mb-2">Eixo de Formação</h5>
                 <ul class="space-y-1 text-[var(--text-secondary)]">
@@ -617,13 +675,13 @@
           </a>
           
           <!-- Social Media Icons -->
-          <div class="mt-12 flex justify-center items-center gap-6">
-            <a href="https://www.instagram.com/casis.londrina" target="_blank" class="flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:shadow-lg transition-all hover:scale-110 active:scale-95">
+          <div class="mt-12 flex justify-center items-center gap-4 md:gap-6">
+            <a href="https://www.instagram.com/casis.utfld/" target="_blank" class="flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:shadow-lg transition-all hover:scale-110 active:scale-95">
               <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
               </svg>
             </a>
-            <a href="https://www.youtube.com/@casislondrina" target="_blank" class="flex items-center justify-center w-12 h-12 rounded-full bg-red-600 text-white hover:shadow-lg transition-all hover:scale-110 active:scale-95">
+            <a href="https://www.youtube.com/@CASIS-LD" target="_blank" class="flex items-center justify-center w-12 h-12 rounded-full bg-red-600 text-white hover:shadow-lg transition-all hover:scale-110 active:scale-95">
               <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
               </svg>
@@ -635,7 +693,7 @@
 
     <footer class="border-t border-[var(--border-color)] bg-[var(--surface-background)] py-8 text-center">
       <p class="text-sm text-[var(--text-secondary)]">© 2025 Sistemas de Informação</p>
-              <p class="mt-2 text-xs text-[var(--text-secondary)]">Feito pelo CASIS(Centro Acadêmico de Sistemas de Informação)</p>
+              <p class="mt-2 text-xs text-[var(--text-secondary)]">Feito pelo CASIS (Centro Acadêmico de Sistemas de Informação)</p>
     </footer>
   </div>
 </body>
